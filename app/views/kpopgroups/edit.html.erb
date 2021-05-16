@@ -1,0 +1,24 @@
+<h1> EDIT THIS </h1>
+
+<h2> <%= @kpopgroup.name %> </h2>
+
+<%= form_with model: @kpopgroup, url: '/edit' do |f| %>
+    <br><br>
+
+    Name of Group: <%= f.text_field :name %>
+    <br><br>
+    How Many Members? <%= f.number_field :members %>
+    <br><br>
+    What label are they signed to? <%= f.text_field :label%>
+    <br><br>
+    What is the main genre of the group? <%= f.text_field :genre %>
+    <br><br>
+    Are they are a boy group or girl group? <%= f.radio_button :group_type, true %> Boy 
+    <%= f.radio_button :group_type, false %> Girl
+    <br><br>
+    What is the concept of the group? <%= %> 
+    <br><br> 
+
+    <%= f.submit "Submit"  %>
+
+<% end %>

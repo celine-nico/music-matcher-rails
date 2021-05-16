@@ -1,0 +1,11 @@
+<h1>Main Library</h1>
+
+<li><%= link_to "MATCHES", user_matches_path(@user) %></li>
+
+<% @kpopgroups.each do |group| %>
+    <%= link_to group.name,  user_kpopgroup_path(@user, group) %><br><br>
+<% end %>
+
+<li><%= link_to "Add a New Group!",  new_kpopgroup_path   %></li>
+
+

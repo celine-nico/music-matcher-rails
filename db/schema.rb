@@ -10,21 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_11_004642) do
+ActiveRecord::Schema.define(version: 2021_05_15_224412) do
 
-  create_table "playlists", force: :cascade do |t|
+  create_table "kpopgroups", force: :cascade do |t|
     t.string "name"
-    t.integer "user_id"
-    t.integer "song_id"
-    t.string "description"
+    t.integer "members"
+    t.string "label"
+    t.string "group_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "genre"
   end
 
-  create_table "songs", force: :cascade do |t|
-    t.string "title"
-    t.string "artist"
-    t.string "genre"
+  create_table "matches", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "kpopgroup_id"
+    t.string "concept"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -36,6 +37,8 @@ ActiveRecord::Schema.define(version: 2021_05_11_004642) do
     t.string "hometown"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "provider"
+    t.string "uid"
   end
 
 end

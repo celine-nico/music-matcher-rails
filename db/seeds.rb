@@ -5,29 +5,32 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Playlist.destroy_all
+Match.destroy_all
 User.destroy_all 
-Song.destroy_all 
+Kpopgroup.destroy_all 
 
 
 5.times do
-    User.create(name: Faker::Games::ElderScrolls.name, 
-    username: Faker::Games::ElderScrolls.first_name,
+    User.create(name: Faker::Name.name, 
+    username: Faker::Games::Pokemon.name,
     hometown: Faker::Address.city, 
     password: "password")
 end 
 
-genre = ["Pop","R&B","EDM","Rap","Alternative"]
+label = ["SM Entertainment", "YG Entertainment", "JYPE", "BigHit", "Pledis Entertainment", "KQ Entertainment"]
 
-# 50.times do 
-#     Song.create(title: Faker::Music::Prince.song , artist: Faker::Name.name, genre: genre.sample)
-# end 
+type = ["boy group", "girl group"]
 
-50.times do 
-    Song.create(title: Faker::Music::Prince.song, artist: Faker::Name.name, genre: genre.sample)
+concept = ["cute", "crush", "fantasy", "horror", "rock", "nostalgia"]
+
+15.times do 
+    Kpopgroup.create(name: Faker::Kpop.iii_groups, members: rand(15), label: label.sample, group_type: type.sample)
 end 
 
-Playlist.create(name: "Blue", description: "For when you need a hug.", user: User.last, song: Song.first) 
+
+10.times do 
+    Match.create(user: User.all.sample, kpopgroup: Kpopgroup.all.sample, concept: concept.sample)
+end  
 
 
-puts "You got great taste! Keep it going!"
+puts "Who wins the dongsaeng this year? hmmm..."

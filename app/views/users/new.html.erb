@@ -1,0 +1,39 @@
+<h1>Sign Up Here!</h1>
+
+<br>
+
+    <% if @user.errors.any? %>
+        <% @user.errors.full_messages.each do |error| %>
+        
+            <h4><%= error %></h4>
+
+        <% end %>
+    <% end %>
+
+<br>
+
+<%= form_with model: @user, url: '/signup' do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    
+    <br><br>
+    
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+
+    <br><br>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+
+    <br><br>
+
+    <%= f.label :hometown %>
+    <%= f.text_field :hometown %>
+
+    <br><br>
+
+    <%= f.submit "Submit"  %>
+
+<% end %>

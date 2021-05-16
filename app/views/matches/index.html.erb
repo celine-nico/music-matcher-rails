@@ -1,0 +1,12 @@
+<h1>All Matches</h1>
+
+<% @matches.each do |match| %>
+
+    <% @user = User.find_by_id(match.user_id) %>
+    <% @kpopgroup = Kpopgroup.find_by_id(match.kpopgroup_id) %>
+    <%= "#{@user.name}'s - Matched With - #{@kpopgroup.name}" %><br><br>
+
+<% end %> 
+
+
+<li><%= link_to "Wanna Find a New Group to Listen to? Take the quiz here!",  new_user_match_path   %></li>
