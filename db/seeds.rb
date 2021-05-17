@@ -23,8 +23,10 @@ type = ["boy group", "girl group"]
 
 concept = ["cute", "crush", "fantasy", "horror", "rock", "nostalgia"]
 
+genre = ["EDM", "Pop", "R&B", "Trap", "Rock"]
+
 15.times do 
-    Kpopgroup.create(name: Faker::Kpop.iii_groups, members: rand(15), label: label.sample, group_type: type.sample)
+    Kpopgroup.create(name: Faker::Kpop.iii_groups, members: rand(15), label: label.sample, genre: genre.sample, group_type: type.sample)
 end 
 
 

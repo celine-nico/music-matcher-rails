@@ -65,3 +65,7 @@ Any Visuals? Colors?
 What is Your Layout Going To Be Like
 
 User Flow?
+
+
+<!-- <li><%= link_to "MATCHES", user_matches_path(@user) %></li> -->
+

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'sessions#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  get '/auth/google_oauth2_callback', to: 'sessions#omniauth'
+  get '/auth/:provider/callback', to: 'sessions#omniauth'
 
 
   get '/signup' => 'users#new'

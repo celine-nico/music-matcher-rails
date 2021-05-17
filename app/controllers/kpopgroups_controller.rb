@@ -2,15 +2,27 @@ class KpopgroupsController < ApplicationController
 
     def index
         if logged_in?
-            @user = User.find_by_id(params[:user_id])
-            @kpopgroups = Kpopgroup.all
-            # binding.pry
+            if params[:user_id]
+                @user = User.find_by_id(params[:user_id])
+                @kpopgroups = Kpopgroup.all 
+                binding.pry
+            else 
+                @kpopgroups = Kpopgroup.all
+                binding.pry
+            end 
         end
     end
 
     def new 
         if logged_in?
-            @kpopgroup = Kpopgroup.all
+            if params[:user_id]
+                @user = User.find_by_id(params[:user_id])
+                @kpopgroup = Kpopgroup.new 
+                # binding.pry
+            else 
+                @kpopgroups = Kpopgroup.new
+                # binding.pry
+            end
         end 
     end 
 
@@ -18,6 +30,17 @@ class KpopgroupsController < ApplicationController
         if logged_in?
             @kpopgroup = Kpopgroup.find_by_id(params[:id])
         end 
+    end 
+
+    def create 
+        if params[:user_id]
+            @user = User.find_by_id(params[:user_id])
+            @kpopgroup = Kpopgroup.all 
+            binding.pry
+        else 
+            @kpopgroup = Kpopgroup.all
+            binding.pry
+        end
     end 
 
     def edit 

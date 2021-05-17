@@ -3,6 +3,9 @@
 
 <br><br>
 
+<% if flash[:message] %>
+    <%= flash[:message] %>
+<% end %> 
     
 
 <%= form_with url: '/login' do |f| %>
