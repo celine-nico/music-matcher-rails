@@ -1,13 +1,16 @@
 <h1>Find the Group best for You!</h1>
 
-<%= form_with model: @kpopgroup, url: '/new' do |f| %>
+
+<%= form_with model: [@user, @match] do |f| %>
     <br><br>
 
-    What is your favorite genre? <%= f.text_field :genre %>
+    What is your favorite genre? <%= f.select :genre, ["EDM", "Pop", "R&B", "Trap", "Rock"] %>
     <br><br>
-    Do you prefer a boy group or girl group? <%= f.radio_button :group_type, true %> Boy 
-    <%= f.radio_button :group_type, false %> Girl
+    Do you prefer a boy group or girl group? <%= f.radio_button :group_type, value = "boy group" %> Boy 
+    <%= f.radio_button :group_type, value = "girl group" %> Girl
     <br><br>
+    What is the concept do you like best? <%=f.select :concept, ["cute", "crush", "fantasy", "horror", "nostalgia"] %> 
+    <br><br> 
 
     <%= f.submit "Submit"  %>
 

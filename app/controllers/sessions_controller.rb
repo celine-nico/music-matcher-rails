@@ -5,10 +5,10 @@ class SessionsController < ApplicationController
 
     def omniauth  
       user = User.create_from_omniauth(auth)
-      binding.pry
+      # binding.pry
       if user.valid?
         session[:user_id] = user.id
-        redirect_to kpopgroups_path(user)
+        redirect_to user_kpopgroups_path(user)
       else
         flash[:message] = user.errors.full_messages.join(", ")
         redirect_to login_path

@@ -8,11 +8,11 @@ Rails.application.routes.draw do
   post '/signup' => 'users#create'
 
   resources :users, only: [:new, :show] do 
-    resources :matches, only: [:index, :show, :new]
+    resources :matches, only: [:index, :show, :new, :create]
     resources :kpopgroups
   end 
-
-  resources :kpopgroups
+  #  post '/'
+  # resources :kpopgroups
  
 
   get '/login' => 'sessions#new'

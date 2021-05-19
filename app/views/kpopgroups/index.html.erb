@@ -1,8 +1,10 @@
 <%= flash[:message] %>
+<h1>Welcome, <%= @user.name %>!</h1>
+<h2>Main Library</h2>
 
-<h1>Main Library</h1>
+<li><%= link_to "MATCHES", user_matches_path(@user) %></li><br><br>
 
-
+<h3>Kpop Groups - (all)</h3>
 <% @kpopgroups.each do |group| %>
     <% if @user %>
         <%= link_to group.name,  user_kpopgroup_path(@user, group) %><br><br>
@@ -11,6 +13,6 @@
     <% end %>
 <% end %>
 
-<li><%= link_to "Add a New Group!",  new_kpopgroup_path   %></li>
+
 
 

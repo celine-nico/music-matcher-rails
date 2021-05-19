@@ -21,18 +21,18 @@ label = ["SM Entertainment", "YG Entertainment", "JYPE", "BigHit", "Pledis Enter
 
 type = ["boy group", "girl group"]
 
-concept = ["cute", "crush", "fantasy", "horror", "rock", "nostalgia"]
+concept = ["cute", "crush", "fantasy", "horror", "nostalgia"]
 
 genre = ["EDM", "Pop", "R&B", "Trap", "Rock"]
 
-15.times do 
-    Kpopgroup.create(name: Faker::Kpop.iii_groups, members: rand(15), label: label.sample, genre: genre.sample, group_type: type.sample)
+40.times do 
+    Kpopgroup.create(name: Faker::Kpop.iii_groups, members: rand(3..15), label: label.sample, genre: genre.sample, group_type: type.sample)
 end 
 
 
-10.times do 
-    Match.create(user: User.all.sample, kpopgroup: Kpopgroup.all.sample, concept: concept.sample)
-end  
+# 10.times do 
+#     Match.create(user: User.all.sample, kpopgroup: Kpopgroup.all.sample, concept: concept.sample)
+# end  
 
 
 puts "Who wins the dongsaeng this year? hmmm..."

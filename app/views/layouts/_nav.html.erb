@@ -10,6 +10,7 @@
 
 
 <br><br>
-
-# <li><%= link_to "Back to Main Page",  kpopgroups_path   %></li>
+<% if logged_in? %>
+ <li><%= link_to "Back to Main Page",  user_kpopgroups_path(current_user)   %></li>
+<% end %>
 
