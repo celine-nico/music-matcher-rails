@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         if @user.save
             # binding.pry
             session[:user_id] = @user.id
-            redirect_to kpopgroups_path(@user)
+            redirect_to user_kpopgroups_path(@user)
         else 
             render :new 
         end 

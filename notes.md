@@ -69,3 +69,13 @@ User Flow?
 
 <!-- <li><%= link_to "MATCHES", user_matches_path(@user) %></li> -->
 
+<!--
+<% @kpopgroups.each do |group| %>
+    <% if @user %>
+        <%= link_to group.name,  user_kpopgroup_path(@user, group) %><br><br>
+    <% else %>
+        <%= link_to group.name, kpopgroup_path(group) %>
+    <% end %>
+<% end %>
+-->
+

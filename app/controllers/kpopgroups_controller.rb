@@ -2,14 +2,14 @@ class KpopgroupsController < ApplicationController
 
     def index
         if logged_in?
-            if params[:user_id]
-                @user = User.find_by_id(params[:user_id])
-                @kpopgroups = Kpopgroup.all 
-                # binding.pry
-            else 
-                @kpopgroups = Kpopgroup.all
-                # binding.pry
-            end 
+            @user = User.find_by_id(params[:user_id])
+            @kpopgroups = Kpopgroup.search(params[:search])
+            # binding.pry
+            # @kpopgroups = Kpopgroup.all 
+            # binding.pry
+        else 
+            @kpopgroups = Kpopgroup.search(params[:search])
+            # binding.pry
         end
     end
 
@@ -24,7 +24,7 @@ class KpopgroupsController < ApplicationController
     private 
 
     def kpopgroup_params
-        params.require(:kpopgroup).permit(:name, :members, :label, :group_type)
+        params.require(:kpopgroup).permit(:name, :members, :label, :group_type, :search)
     end 
     
 end
