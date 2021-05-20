@@ -8,12 +8,10 @@ class Kpopgroup < ApplicationRecord
 
     def self.search(search)
         if search
+            groups = []
             group = Kpopgroup.find_by(name: search)
-            # if group
-            #     self.where(kpopgroup_id: group)
-            # else 
-            #     @kpopgroups = Kpopgroup.all
-            # end 
+            return groups << group
+            binding.pry
         else 
             @kpopgroups = Kpopgroup.all
         end 

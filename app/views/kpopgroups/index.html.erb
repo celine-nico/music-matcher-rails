@@ -13,9 +13,8 @@
         <%= submit_tag("Search", :name => nil) %>
     </p>
 <% end %>
-
-<% if @kpopgroups %>
-    <%= link_to @kpopgroups.name,  user_kpopgroup_path(@user, @kpopgroups) %><br><br>
+<% if @kpopgroups.size == 1 %>
+    <%= link_to @kpopgroups[0].name,  user_kpopgroup_path(@user, @kpopgroups) %><br><br>
 <% else %>
     <% @kpopgroups.each do |group| %>
         <%= link_to group.name,  user_kpopgroup_path(@user, group) %><br><br>

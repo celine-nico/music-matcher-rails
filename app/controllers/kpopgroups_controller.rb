@@ -5,11 +5,8 @@ class KpopgroupsController < ApplicationController
             @user = User.find_by_id(params[:user_id])
             @kpopgroups = Kpopgroup.search(params[:search])
             # binding.pry
-            # @kpopgroups = Kpopgroup.all 
-            # binding.pry
         else 
             @kpopgroups = Kpopgroup.search(params[:search])
-            # binding.pry
         end
     end
 
